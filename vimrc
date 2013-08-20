@@ -19,8 +19,11 @@ set foldmethod=indent
 set hlsearch
 set hidden
 set paste
+set nopaste
 set wildmode=longest,list
 set completeopt=longest,menuone
+
+au FileType php set omnifunc=phpcomplete#CompletePHP
 
 " Can copy/paste to an other vim windows
 vmap <silent> ,y "xy<CR>:wviminfo! ~/.viminfo<CR>
@@ -57,3 +60,10 @@ autocmd Filetype html,xml,xsl,htm,php source ~/.vim/scripts/closetag.vim
 " Tabman configuration
 let g:tabman_toggle='<C-T>'
 let g:tabman_number=0
+
+" Options phpcomplete
+let g:phpcomplete_parse_docblock_comments=1
+
+" Syntestic configs
+let g:syntastic_auto_jump=1
+let g:syntastic_auto_loc_list=1
