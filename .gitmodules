@@ -34,3 +34,9 @@
 [submodule "bundle/markdown"]
 	path = bundle/markdown
 	url = git@github.com:plasticboy/vim-markdown.git
+[submodule "bundle/git-branch-info"]
+	path = bundle/git-branch-info
+	url = git@github.com:vim-scripts/Git-Branch-Info.git
+[submodule "bundle/airline"]
+	path = bundle/airline
+	url = git@github.com:bling/vim-airline.git

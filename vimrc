@@ -22,6 +22,7 @@ set paste
 set nopaste
 set wildmode=longest,list
 set completeopt=longest,menuone
+set laststatus=2
 
 au FileType php set omnifunc=phpcomplete#CompletePHP
 
@@ -67,3 +68,16 @@ let g:phpcomplete_parse_docblock_comments=1
 " Syntestic configs
 let g:syntastic_auto_jump=1
 let g:syntastic_auto_loc_list=1
+
+" Config pour Fugitive
+nmap ,ga :Git add
+nmap ,gs :Gstatus<CR>
+nmap ,gc :Git commit
+nmap ,gpl :Git pull<CR>
+nmap ,gps :Git push<CR>
+
+" Config airline
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline_powerline_fonts=1
+let g:airline_theme='bubblegum'
