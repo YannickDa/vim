@@ -23,6 +23,7 @@ set nopaste
 set wildmode=longest,list
 set completeopt=longest,menuone
 set laststatus=2
+set mouse=a
 
 let javaScript_fold=1         " JavaScript
 let perl_fold=1               " Perl
