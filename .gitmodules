@@ -43,3 +43,6 @@
 [submodule "bundle/jquery-syntax"]
 	path = bundle/jquery-syntax
 	url = git@github.com:nono/jquery.vim.git
+[submodule "bundle/jellybeans-color"]
+	path = bundle/jellybeans-color
+	url = git@github.com:nanotech/jellybeans.vim.git
