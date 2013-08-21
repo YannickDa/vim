@@ -15,7 +15,7 @@ set shiftwidth=4
 set tabstop=4
 set expandtab
 set showtabline=2
-set foldmethod=indent
+set foldmethod=syntax
 set hlsearch
 set hidden
 set paste
@@ -23,6 +23,17 @@ set nopaste
 set wildmode=longest,list
 set completeopt=longest,menuone
 set laststatus=2
+
+let javaScript_fold=1         " JavaScript
+let perl_fold=1               " Perl
+let php_folding=1             " PHP
+let r_syntax_folding=1        " R
+let ruby_fold=1               " Ruby
+let sh_fold_enabled=1         " sh
+let vimsyn_folding='af'       " Vim script
+let xml_syntax_folding=1      " XML
+
+color jellybeans
 
 au FileType php set omnifunc=phpcomplete#CompletePHP
 
