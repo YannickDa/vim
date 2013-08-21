@@ -23,7 +23,6 @@ set nopaste
 set wildmode=longest,list
 set completeopt=longest,menuone
 set laststatus=2
-set mouse=a
 
 let javaScript_fold=1         " JavaScript
 let perl_fold=1               " Perl
@@ -34,9 +33,20 @@ let sh_fold_enabled=1         " sh
 let vimsyn_folding='af'       " Vim script
 let xml_syntax_folding=1      " XML
 
-color jellybeans
+color distinguished
 
 au FileType php set omnifunc=phpcomplete#CompletePHP
+au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+au FileType html set omnifunc=htmlcomplete#CompleteTags
+au FileType css set omnifunc=csscomplete#CompleteCSS
+
+autocmd BufReadPre *.js let b:javascript_lib_use_jquery=1
+autocmd BufReadPre *.js let b:javascript_lib_use_underscore=1
+autocmd BufReadPre *.js let b:javascript_lib_use_backbone=1
+autocmd BufReadPre *.js let b:javascript_lib_use_prelude=0
+autocmd BufReadPre *.js let b:javascript_lib_use_angularjs=0
+autocmd BufReadPre *.js let b:javascript_lib_use_requirejs=0
+autocmd BufReadPre *.js let b:javascript_lib_use_lodash=0
 
 " Can copy/paste to an other vim windows
 vmap <silent> ,y "xy<CR>:wviminfo! ~/.viminfo<CR>

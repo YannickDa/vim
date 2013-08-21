@@ -40,3 +40,9 @@
 [submodule "bundle/colorschemes"]
 	path = bundle/colorschemes
 	url = git@github.com:flazz/vim-colorschemes.git
+[submodule "bundle/javascript-libraries-syntax"]
+	path = bundle/javascript-libraries-syntax
+	url = git@github.com:othree/javascript-libraries-syntax.vim.git
+[submodule "bundle/color-distinguished"]
+	path = bundle/color-distinguished
+	url = git@github.com:Lokaltog/vim-distinguished.git
