@@ -43,3 +43,9 @@
 [submodule "bundle/neocomplcache"]
 	path = bundle/neocomplcache
 	url = git@github.com:Shougo/neocomplcache.vim.git
+[submodule "bundle/neocomplcache-ultisnips"]
+	path = bundle/neocomplcache-ultisnips
+	url = git@github.com:JazzCore/neocomplcache-ultisnips.git
+[submodule "bundle/vmustache"]
+	path = bundle/vmustache
+	url = git@github.com:tobyS/vmustache.git

@@ -1,3 +1,8 @@
+snippet php "Open PHP tag quickly"
+<?php
+
+$1
+endsnippet
 snippet de "Debug ZF2"
 \Zend\Debug\Debug::dump($1);
 endsnippet
@@ -12,4 +17,10 @@ endsnippet
 
 snippet dex1 "Debug ZF1 & exit"
 Zend_Debug::dump($1);exit;
+endsnippet
+
+snippet fun "Create new function"
+${1:public} function $2($3) {
+	$4
+}
 endsnippet
