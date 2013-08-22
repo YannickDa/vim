@@ -104,8 +104,27 @@ let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_min_syntax_length = 3
 
+inoremap <silent> <TAB> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+    "return neocomplcache#smart_close_popup() . "\<CR>"
+    " For no inserting <CR> key.
+    return pumvisible() ? "\<C-n>" : "\<TAB>"
+endfunction
+
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" Config UltiSnips
+let g:UltiSnipsExpandTrigger="<s-tab>"
+let g:UltiSnipsJumpForwardTrigger="<s-tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-tab>"
