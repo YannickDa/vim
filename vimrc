@@ -57,9 +57,10 @@ let Tlist_File_Fold_Auto_Close=1
 let Tlist_Sort_Type="name"
 
 " Configure NERDTree
-inoremap <silent> <C-F> <ESC>:NERDTreeToggle<CR>i
-vnoremap <silent> <C-F> :NERDTreeToggle<CR>
-nnoremap <silent> <C-F> :NERDTreeToggle<CR>
+inoremap <silent> <C-F> <ESC>:NERDTreeMirrorToggle<CR>i
+vnoremap <silent> <C-F> :NERDTreeMirrorToggle<CR>
+nnoremap <silent> <C-F> :NERDTreeMirrorToggle<CR>
+let g:nerdtree_tabs_autoclose=1
 let NERDTreeQuitOnOpen=1
 
 " PHP DocBloc
