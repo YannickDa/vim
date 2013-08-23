@@ -79,10 +79,6 @@ let g:tabman_number=0
 " Options phpcomplete
 let g:phpcomplete_parse_docblock_comments=1
 
-" Syntestic configs
-let g:syntastic_auto_jump=1
-let g:syntastic_auto_loc_list=1
-
 " Config pour Fugitive
 nmap ,ga :Git add
 nmap ,gs :Gstatus<CR>
