@@ -24,6 +24,9 @@ set wildmode=longest,list
 set completeopt=longest,menuone
 set laststatus=2
 
+au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
+au BufRead,BufNewFile *.phtml set ft=html.php
+
 let javaScript_fold=1         " JavaScript
 let perl_fold=1               " Perl
 let php_folding=1             " PHP
@@ -34,8 +37,6 @@ let vimsyn_folding='af'       " Vim script
 let xml_syntax_folding=1      " XML
 
 color jellybeans
-
-au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
 
 " Can copy/paste to an other vim windows
 vmap <silent> ,y "xy<CR>:wviminfo! ~/.viminfo<CR>

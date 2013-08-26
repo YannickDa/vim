@@ -1,26 +1,62 @@
-snippet php "Open PHP tag quickly"
+snippet php "Open PHP tag quickly" !b
 <?php
 
 $1
 endsnippet
-snippet de "Debug ZF2"
+
+snippet de "Debug ZF2" !b
 \Zend\Debug\Debug::dump($1);
 endsnippet
 
-snippet dex "Debug ZF2 & exit"
+snippet dex "Debug ZF2 & exit" !b
 \Zend\Debug\Debug::dump($1);exit;
 endsnippet
 
-snippet de1 "Debug ZF1"
+snippet de1 "Debug ZF1" !b
 Zend_Debug::dump($1);
 endsnippet
 
-snippet dex1 "Debug ZF1 & exit"
+snippet dex1 "Debug ZF1 & exit" !b
 Zend_Debug::dump($1);exit;
 endsnippet
 
-snippet fun "Create new function"
+snippet fun "Create new function" !b
 ${1:public} function $2($3) {
 	$4
+}
+endsnippet
+
+snippet classcontroller "Controller Idvive" !b
+<?php
+/**
+ * ${1:`!v expand("%:t:r")`}
+ *
+ * @package     ${2:`!v substitute(substitute(expand("%:h"), '^.*\/src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
+ * @copyright   Copyright (c) `date +%Y` - IDVIVE SARL (http://www.idvive.com)
+ * @license     http://license.idvive.com
+ * @author      Yannick Dalbin <yannick@idvive.com>
+ * @version     $Id `!v expand("%:t")` `date +%Y-%m-%d`$
+ * @see         Idvive\Mvc\Controller\AbstractActionController
+ */
+namespace $2;
+
+use Idvive\Mvc\Controller\AbstractActionController;
+
+class $1 extends AbstractActionController {
+
+    public function ${3:index}Action() {
+		$4
+
+        return $this->sendResponse();
+    }
+
+}
+endsnippet
+
+snippet newaction "Créer une nouvelle action pour un controller" !b
+public function $1Action() {
+	$2
+
+	return $this->sendResponse();
 }
 endsnippet
