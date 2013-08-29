@@ -1,28 +1,28 @@
 snippet php "Open PHP tag quickly" !b
 <?php
 
-$1
+$0
 endsnippet
 
 snippet de "Debug ZF2" !b
-\Zend\Debug\Debug::dump($1);
+\Zend\Debug\Debug::dump($1);$0
 endsnippet
 
 snippet dex "Debug ZF2 & exit" !b
-\Zend\Debug\Debug::dump($1);exit;
+\Zend\Debug\Debug::dump($0);exit;
 endsnippet
 
 snippet de1 "Debug ZF1" !b
-Zend_Debug::dump($1);
+Zend_Debug::dump($1);$0
 endsnippet
 
 snippet dex1 "Debug ZF1 & exit" !b
-Zend_Debug::dump($1);exit;
+Zend_Debug::dump($0);exit;
 endsnippet
 
 snippet fun "Create new function" !b
 ${1:public} function $2($3) {
-	$4
+	$0
 }
 endsnippet
 
@@ -45,7 +45,7 @@ use Idvive\Mvc\Controller\AbstractActionController;
 class $1 extends AbstractActionController {
 
     public function ${3:index}Action() {
-		$4
+		$0
 
         return $this->sendResponse();
     }
@@ -55,8 +55,139 @@ endsnippet
 
 snippet newaction "Créer une nouvelle action pour un controller" !b
 public function $1Action() {
-	$2
+	$0
 
 	return $this->sendResponse();
 }
+endsnippet
+
+snippet classform "Form Idvive" !b
+<?php
+/**
+ * ${1:`!v expand("%:t:r")`}
+ *
+ * @package     ${2:`!v substitute(substitute(expand("%:h"), '^.*\/src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
+ * @copyright   Copyright (c) `date +%Y` - IDVIVE SARL (http://www.idvive.com)
+ * @license     http://license.idvive.com
+ * @author      Yannick Dalbin <yannick@idvive.com>
+ * @version     $Id `!v expand("%:t")` `date +%Y-%m-%d`$
+ * @see         Idvive\Form\Form
+ */
+namespace $2;
+
+use Idvive\Form\Form;
+
+class $1 extends Form {
+
+	public function init() {
+		$this->add(array(
+			'type' => '$0',
+			'options' => array(
+				'use_as_base_fieldset' => true
+			)
+		));
+
+		parent::init();
+	}
+
+}
+endsnippet
+
+snippet classabstractfieldset "Abstract Fieldset Idvive" !b
+<?php
+/**
+ * ${1:`!v expand("%:t:r")`}
+ *
+ * @package     ${2:`!v substitute(substitute(expand("%:h"), '^.*\/src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
+ * @copyright   Copyright (c) `date +%Y` - IDVIVE SARL (http://www.idvive.com)
+ * @license     http://license.idvive.com
+ * @author      Yannick Dalbin <yannick@idvive.com>
+ * @version     $Id `!v expand("%:t")` `date +%Y-%m-%d`$
+ * @see         Idvive\Form\Fieldset
+ */
+namespace $2;
+
+use Idvive\Form\Fieldset;
+
+abstract class $1 extends Fieldset {
+
+	public function __construct($name = '$3') {
+		parent::__construct($name);
+	}
+
+	public function init() {
+		$this->setObject($this->getServiceManager()->get('$4_entity'));
+	}$0
+
+}
+endsnippet
+
+snippet newfunctionfield "Field in Fieldset" !b
+protected function add$1() {
+	$this->add(array(
+		'name' => '$2',
+		'type' => '$3',
+		'options' => array(
+			$4
+		),$5
+	));
+
+	$this->addFilter('$2', array(
+		'required' => ${5: true},
+		'filters' => array(
+			$6,
+		),$0
+	));
+
+	return $this;
+}
+endsnippet
+
+snippet classfieldset "Fieldset Idvive" !b
+<?php
+/**
+ * ${1:`!v expand("%:t:r")`}
+ *
+ * @package     ${2:`!v substitute(substitute(expand("%:h"), '^.*\/src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
+ * @copyright   Copyright (c) `date +%Y` - IDVIVE SARL (http://www.idvive.com)
+ * @license     http://license.idvive.com
+ * @author      Yannick Dalbin <yannick@idvive.com>
+ * @version     $Id `!v expand("%:t")` `date +%Y-%m-%d`$
+ * @see         Idvive\Form\Fieldset
+ */
+namespace $2;
+
+use Idvive\Form\Fieldset;
+
+class $1 extends Fieldset {
+
+	public function __construct($name = '$3') {
+		parent::__construct($name);
+	}
+
+	public function init() {
+		$this->setObject($this->getServiceManager()->get('$4_entity'));
+		parent::init();
+
+		$0
+	}
+
+}
+endsnippet
+
+snippet addfield "Add a Field to Fieldset" !b
+$this->add(array(
+	'name' => '$1',
+	'type' => '$2',
+	'options' => array(
+		$3
+	),$4
+));
+
+$this->addFilter('$1', array(
+	'required' => ${5: true},
+	'filters' => array(
+		$6,
+	),$0
+));
 endsnippet
