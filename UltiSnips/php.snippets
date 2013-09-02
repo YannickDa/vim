@@ -31,7 +31,7 @@ snippet classcontroller "Controller Idvive" !b
 /**
  * ${1:`!v expand("%:t:r")`}
  *
- * @package     ${2:`!v substitute(substitute(expand("%:h"), '^.*\/src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
+ * @package     ${2:`!v substitute(substitute(expand("%:h"), '^.*src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
  * @copyright   Copyright (c) `date +%Y` - IDVIVE SARL (http://www.idvive.com)
  * @license     http://license.idvive.com
  * @author      Yannick Dalbin <yannick@idvive.com>
@@ -66,7 +66,7 @@ snippet classform "Form Idvive" !b
 /**
  * ${1:`!v expand("%:t:r")`}
  *
- * @package     ${2:`!v substitute(substitute(expand("%:h"), '^.*\/src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
+ * @package     ${2:`!v substitute(substitute(expand("%:h"), '^.*src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
  * @copyright   Copyright (c) `date +%Y` - IDVIVE SARL (http://www.idvive.com)
  * @license     http://license.idvive.com
  * @author      Yannick Dalbin <yannick@idvive.com>
@@ -98,7 +98,7 @@ snippet classabstractfieldset "Abstract Fieldset Idvive" !b
 /**
  * ${1:`!v expand("%:t:r")`}
  *
- * @package     ${2:`!v substitute(substitute(expand("%:h"), '^.*\/src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
+ * @package     ${2:`!v substitute(substitute(expand("%:h"), '^.*src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
  * @copyright   Copyright (c) `date +%Y` - IDVIVE SARL (http://www.idvive.com)
  * @license     http://license.idvive.com
  * @author      Yannick Dalbin <yannick@idvive.com>
@@ -133,14 +133,14 @@ protected function add$1() {
 	));
 
 	$this->addFilter('$2', array(
-		'required' => ${5: true},
+		'required' => ${6: true},
 		'filters' => array(
-			$6,
-		),$0
+			$7
+		),$8
 	));
 
 	return $this;
-}
+}$0
 endsnippet
 
 snippet classfieldset "Fieldset Idvive" !b
@@ -148,7 +148,7 @@ snippet classfieldset "Fieldset Idvive" !b
 /**
  * ${1:`!v expand("%:t:r")`}
  *
- * @package     ${2:`!v substitute(substitute(expand("%:h"), '^.*\/src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
+ * @package     ${2:`!v substitute(substitute(expand("%:h"), '^.*src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
  * @copyright   Copyright (c) `date +%Y` - IDVIVE SARL (http://www.idvive.com)
  * @license     http://license.idvive.com
  * @author      Yannick Dalbin <yannick@idvive.com>
@@ -175,6 +175,30 @@ class $1 extends Fieldset {
 }
 endsnippet
 
+snippet classfieldsetextends "Fieldset Extends Idvive" !b
+<?php
+/**
+ * ${1:`!v expand("%:t:r")`}
+ *
+ * @package     ${2:`!v substitute(substitute(expand("%:h"), '^.*src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
+ * @copyright   Copyright (c) `date +%Y` - IDVIVE SARL (http://www.idvive.com)
+ * @license     http://license.idvive.com
+ * @author      Yannick Dalbin <yannick@idvive.com>
+ * @version     $Id `!v expand("%:t")` `date +%Y-%m-%d`$
+ */
+namespace $2;
+
+class $1 extends Abstract$3 {
+
+	public function init() {
+		parent::init();
+
+		$0
+	}
+
+}
+endsnippet
+
 snippet addfield "Add a Field to Fieldset" !b
 $this->add(array(
 	'name' => '$1',
@@ -190,4 +214,52 @@ $this->addFilter('$1', array(
 		$6,
 	),$0
 ));
+endsnippet
+
+snippet classfactory "Factory Class Zend" !b
+<?php
+/**
+ * ${1:`!v expand("%:t:r")`}
+ *
+ * @package     ${2:`!v substitute(substitute(expand("%:h"), '^.*src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
+ * @copyright   Copyright (c) `date +%Y` - IDVIVE SARL (http://www.idvive.com)
+ * @license     http://license.idvive.com
+ * @author      Yannick Dalbin <yannick@idvive.com>
+ * @version     $Id `!v expand("%:t")` `date +%Y-%m-%d`$
+ */
+namespace $2;
+
+use Zend\ServiceManager\FactoryInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
+
+class $1 implements FactoryInterface {
+
+	public function createService(ServiceLocatorInterface $sl) {
+		$0
+	}
+
+}
+endsnippet
+
+snippet classmodel "Model Class Idvive" !b
+<?php
+/**
+ * ${1:`!v expand("%:t:r")`}
+ *
+ * @package     ${2:`!v substitute(substitute(expand("%:h"), '^.*src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
+ * @copyright   Copyright (c) `date +%Y` - IDVIVE SARL (http://www.idvive.com)
+ * @license     http://license.idvive.com
+ * @author      Yannick Dalbin <yannick@idvive.com>
+ * @version     $Id `!v expand("%:t")` `date +%Y-%m-%d`$
+ * @see			Idvive\Orm\Model\AbstractModel
+ */
+namespace $2;
+
+use Idvive\Orm\Model\AbstractModel;
+
+class $1 extends AbstractModel {
+
+	$0
+
+}
 endsnippet
