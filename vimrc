@@ -97,6 +97,7 @@ let g:airline_theme='bubblegum'
 inoremap <silent> <C-B> <ESC>:BufExplorer<CR>i
 vnoremap <silent> <C-B> :BufExplorer<CR>
 nnoremap <silent> <C-B> :BufExplorer<CR>
+let g:bufExplorerShowRelativePath=1
 
 " Config neocomplcache
 let g:neocomplcache_enable_at_startup = 1

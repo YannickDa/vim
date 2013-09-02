@@ -20,6 +20,18 @@ snippet dex1 "Debug ZF1 & exit" !b
 Zend_Debug::dump($0);exit;
 endsnippet
 
+snippet getservice "Get Service Manager" !b
+$this->getService('$1')->$0
+endsnippet
+
+snippet getmodel "Get Service Manager" !b
+$this->getModel()->$0
+endsnippet
+
+snippet getmodelof "Get Service Manager" !b
+$this->getModelOf('$1')->$0
+endsnippet
+
 snippet fun "Create new function" !b
 ${1:public} function $2($3) {
 	$0
@@ -216,12 +228,52 @@ $this->addFilter('$1', array(
 ));
 endsnippet
 
+snippet classentity "Entity Idvive" !b
+<?php
+/**
+ * ${1:`!v expand("%:t:r")`}
+ *
+ * @package     ${2:`!v substitute(substitute(expand("%:h"), '.*src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
+ * @copyright   Copyright (c) `date +%Y` - IDVIVE SARL (http://www.idvive.com)
+ * @license     http://license.idvive.com
+ * @author      Yannick Dalbin <yannick@idvive.com>
+ * @version     $Id `!v expand("%:t")` `date +%Y-%m-%d`$
+ * @see         Idvive\Orm\Entity\AbstractEntity
+ */
+namespace $2;
+
+use Idvive\Orm\Entity\AbstractEntity;
+
+class $1 extends AbstractEntity {
+
+	protected $_id$3;$0
+
+	public function getId() {
+		return $this->getId$3();
+	}
+
+	public function setId($id) {
+		return $this->setId$3($id);
+	}
+
+	public function getId$3() {
+		return $this->_id$3;
+	}
+
+	public function setId$3($id) {
+		$this->_id$3 = $id;
+		return $this;
+	}
+
+}
+endsnippet
+
 snippet classfactory "Factory Class Zend" !b
 <?php
 /**
  * ${1:`!v expand("%:t:r")`}
  *
- * @package     ${2:`!v substitute(substitute(expand("%:h"), '^.*src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
+ * @package     ${2:`!v substitute(substitute(expand("%:h"), '.*src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
  * @copyright   Copyright (c) `date +%Y` - IDVIVE SARL (http://www.idvive.com)
  * @license     http://license.idvive.com
  * @author      Yannick Dalbin <yannick@idvive.com>
@@ -246,7 +298,7 @@ snippet classmodel "Model Class Idvive" !b
 /**
  * ${1:`!v expand("%:t:r")`}
  *
- * @package     ${2:`!v substitute(substitute(expand("%:h"), '^.*src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
+ * @package     ${2:`!v substitute(substitute(expand("%:h"), '.*src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
  * @copyright   Copyright (c) `date +%Y` - IDVIVE SARL (http://www.idvive.com)
  * @license     http://license.idvive.com
  * @author      Yannick Dalbin <yannick@idvive.com>
@@ -258,6 +310,105 @@ namespace $2;
 use Idvive\Orm\Model\AbstractModel;
 
 class $1 extends AbstractModel {
+
+	$0
+
+}
+endsnippet
+
+snippet classmappermysql "Mapper mysql Idvive" !b
+<?php
+/**
+ * ${1:`!v expand("%:t:r")`}
+ *
+ * @package     ${2:`!v substitute(substitute(expand("%:h"), '.*src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
+ * @copyright   Copyright (c) `date +%Y` - IDVIVE SARL (http://www.idvive.com)
+ * @license     http://license.idvive.com
+ * @author      Yannick Dalbin <yannick@idvive.com>
+ * @version     $Id `!v expand("%:t")` `date +%Y-%m-%d`$
+ * @see         Idvive\Orm\Mapper\Db\AbstractDb
+ */
+namespace $2;
+
+use Idvive\Orm\Mapper\Db\AbstractDb;
+
+class $1 extends AbstractDb {
+
+    /**
+     * Le nom de la table
+     * 
+     * @var string
+     */
+    protected $_tableName = ${3:array('$4' => '$4${5:s}')};
+
+    /**
+     * La liste des champs de la table
+     *
+     * @var array
+     */
+    protected $_fields = array(
+        'id_$6',$7
+    );
+
+    /**
+     * Le champ primaire de la table
+     *
+     * @var string
+     */
+    protected $_idField = ${8:'id_$6'};${9:
+
+	/**
+	 * Liste des clés étrangères
+	 *
+	 * @var array
+	 */
+	protected $_foreignKey = array(
+		$10
+    );}${11:
+
+	/**
+	 * Liste des relations 
+	 *
+	 * @var array
+	 */
+	protected $_relations = array(
+		$12
+    );}${13:
+
+	/**
+	 * Liste des filtres à appliquer
+	 *
+	 * @var array
+	 */
+    protected $_filterData = array(
+        '$14' => array(
+            'name' => 'Idvive\Filter\DateTime',
+            'format' => 'Y-m-d H:i:s',
+        ),
+    );}
+
+	$0
+
+}
+endsnippet
+
+snippet classservice "Service Idvive" !b
+<?php
+/**
+ * ${1:`!v expand("%:t:r")`}
+ *
+ * @package     ${2:`!v substitute(substitute(expand("%:h"), '.*src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
+ * @copyright   Copyright (c) `date +%Y` - IDVIVE SARL (http://www.idvive.com)
+ * @license     http://license.idvive.com
+ * @author      Yannick Dalbin <yannick@idvive.com>
+ * @version     $Id `!v expand("%:t")` `date +%Y-%m-%d`$
+ * @see         Idvive\Orm\Service\AbstractService
+ */
+namespace $2;
+
+use Idvive\Orm\Service\AbstractService;
+
+class $1 extends AbstractService {
 
 	$0
 
