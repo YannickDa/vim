@@ -4,31 +4,31 @@ snippet php "Open PHP tag quickly" !b
 $0
 endsnippet
 
-snippet de "Debug ZF2" !b
+snippet de "Debug ZF2" !
 \Zend\Debug\Debug::dump($1);$0
 endsnippet
 
-snippet dex "Debug ZF2 & exit" !b
+snippet dex "Debug ZF2 & exit" !
 \Zend\Debug\Debug::dump($0);exit;
 endsnippet
 
-snippet de1 "Debug ZF1" !b
+snippet de1 "Debug ZF1" !
 Zend_Debug::dump($1);$0
 endsnippet
 
-snippet dex1 "Debug ZF1 & exit" !b
+snippet dex1 "Debug ZF1 & exit" !
 Zend_Debug::dump($0);exit;
 endsnippet
 
-snippet getservice "Get Service Manager" !b
+snippet getservice "Get Service Manager" !
 $this->getService('$1')->$0
 endsnippet
 
-snippet getmodel "Get Service Manager" !b
+snippet getmodel "Get Service Manager" !
 $this->getModel()->$0
 endsnippet
 
-snippet getmodelof "Get Service Manager" !b
+snippet getmodelof "Get Service Manager" !
 $this->getModelOf('$1')->$0
 endsnippet
 
@@ -413,4 +413,30 @@ class $1 extends AbstractService {
 	$0
 
 }
+endsnippet
+
+snippet addmodulealias "Add module alias" !b
+${1:'$2_entity' => '$3\\${4:Entity}\\$5',
+}${6:'$2_model' => '$3\\${7:Model}\\${8:$5}',
+}${9:'$2_mapper' => '$3\\${10:Mapper}\\${11:$5MySQL}',
+}${12:'$2_service' => '$3\\${13:Service}\\${14:$5}',
+}$0
+endsnippet
+
+snippet addmoduledef "Add module definition" !b
+${1:'$2_model' => array(
+	'parameters' => array(
+		${3:'entity' => '$2_entity',
+		}${4:'mapper' => '$2_mapper',}
+	),
+),
+}${5:'$2_service' => array(
+	'parameters' => array(
+		'model' => '$2_model',
+	),
+),
+}${6:'$2_entity' => array(
+	'shared' => false,
+),
+}$0
 endsnippet
