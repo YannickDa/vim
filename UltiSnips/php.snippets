@@ -135,7 +135,7 @@ abstract class $1 extends Fieldset {
 endsnippet
 
 snippet newfunctionfield "Field in Fieldset" !b
-protected function add$1() {
+protected function add$1(${9:$required = ${10:true}}) {
 	$this->add(array(
 		'name' => '$2',
 		'type' => '$3',
@@ -145,7 +145,7 @@ protected function add$1() {
 	));
 
 	$this->addFilter('$2', array(
-		'required' => ${6: true},
+		'required' => $required,
 		'filters' => array(
 			$7
 		),$8
@@ -221,7 +221,7 @@ $this->add(array(
 ));
 
 $this->addFilter('$1', array(
-	'required' => ${5: true},
+	'required' => ${5:true},
 	'filters' => array(
 		$6,
 	),$0
@@ -439,4 +439,36 @@ ${1:'$2_model' => array(
 	'shared' => false,
 ),
 }$0
+endsnippet
+
+snippet zendsql "Permet d'effectuer des requêtes SQL avec zend" !b
+$sql = $this->getSql();
+$select = $sql->select();
+
+$0
+
+$statement = $sql->prepareStatementForSqlObject($select);
+return $this->getResults($statement->execute());
+endsnippet
+
+snippet classphp "Classe PHP" !b
+<?php
+/**
+ * ${1:`!v expand("%:t:r")`}
+ *
+ * @package     ${2:`!v substitute(substitute(expand("%:h"), '.*src\/\(.*\)$', '\1', ''), '\/', '\\', 'g')`}
+ * @copyright   Copyright (c) `date +%Y` - IDVIVE SARL (http://www.idvive.com)
+ * @license     http://license.idvive.com
+ * @author      Yannick Dalbin <yannick@idvive.com>
+ * @version     $Id `!v expand("%:t")` `date +%Y-%m-%d`$
+ */
+namespace $2;
+${3:
+use $4;}
+
+class $1${5: extends $6} {
+
+	$0
+
+}
 endsnippet
