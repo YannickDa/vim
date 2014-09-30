@@ -80,8 +80,30 @@ set wildmode=longest,list
 set completeopt=longest,menuone
 set laststatus=2
 
+color jellybeans
+
+
+" Can copy/paste to an other vim windows
+vmap <silent> ,y "xy<CR>:wviminfo! ~/.viminfo<CR>
+nmap <silent> ,p :rviminfo! ~/.viminfo<CR>"xp
+
+" Can delete ^M from Windows files
+map <silent> ,m :%s/\r//g<CR>
+
+" Config pour Fugitive
+nmap ,ga :Git add
+nmap ,gs :Gstatus<CR>
+nmap ,gc :Git commit
+nmap ,gpl :Git pull<CR>
+nmap ,gps :Git push<CR>
+
+
 " Airline configuration
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline_powerline_fonts=1
+"let g:airline_theme='bubblegum'
 
 " Neocomplcache configuration
 let g:acp_enableAtStartup = 0
@@ -110,10 +132,10 @@ inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
+autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 if !exists('g:neocomplcache_force_omni_patterns')
@@ -125,7 +147,11 @@ let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\
 
 
 " NERDTree configuration
-g:nerdtree_tabs_autoclose=1
+let g:nerdtree_tabs_autoclose=1
+inoremap <silent> <C-F> <ESC>:NERDTreeMirrorToggle<CR>i
+vnoremap <silent> <C-F> :NERDTreeMirrorToggle<CR>
+nnoremap <silent> <C-F> :NERDTreeMirrorToggle<CR>
+let NERDTreeQuitOnOpen=1
 
 
 
@@ -165,6 +191,14 @@ let Tlist_Sort_Type="name"
 
 " vim-javascript configuration
 let b:javascript_fold=1
+
+
+
+" Buffer Explorer Options
+inoremap <silent> <C-B> <ESC>:BufExplorer<CR>i
+vnoremap <silent> <C-B> :BufExplorer<CR>
+nnoremap <silent> <C-B> :BufExplorer<CR>
+let g:bufExplorerShowRelativePath=1
 
 
 
