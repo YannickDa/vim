@@ -37,7 +37,10 @@ Plugin 'StanAngeloff/php.vim'
 Plugin 'EvanDotPro/php_getset.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'comments.vim'
-
+Plugin 'closetag.vim'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'jQuery'
+Bundle 'JazzCore/neocomplcache-ultisnips'
 
 
 " All of your Plugins must be added before the following line
@@ -105,32 +108,22 @@ let g:airline#extensions#syntastic#enabled = 1
 let g:airline_powerline_fonts=1
 "let g:airline_theme='bubblegum'
 
+
+
+
+
 " Neocomplcache configuration
-let g:acp_enableAtStartup = 0
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-let g:neocomplcache_enable_camel_case_completion = 1
-
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-    return neocomplcache#smart_close_popup() . "\<CR>"
+    return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 endfunction
 
+inoremap <expr><Enter>  pumvisible() ? "\<C-Y>" : "\<Enter>"
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -138,12 +131,12 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-if !exists('g:neocomplcache_force_omni_patterns')
-    let g:neocomplcache_force_omni_patterns = {}
+if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {}
 endif
-let g:neocomplcache_force_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_force_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 
 " NERDTree configuration
@@ -199,6 +192,21 @@ inoremap <silent> <C-B> <ESC>:BufExplorer<CR>i
 vnoremap <silent> <C-B> :BufExplorer<CR>
 nnoremap <silent> <C-B> :BufExplorer<CR>
 let g:bufExplorerShowRelativePath=1
+
+
+
+" Javascript syntax configuration
+let g:used_javascript_libs = 'underscore,backbone,jquery'
+autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 0
+autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 0
+
+
+
+" Closetag configuration
+autocmd Filetype html,xml,xsl,htm,php source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 
 
 
