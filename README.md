@@ -6,6 +6,14 @@ Installation
 
 ### Requirement
 
+#### Ack
+
+> yum install ack
+
+#### Powerline
+
+> yum install vim-plugin-powerline
+
 #### Ctags
 
 > yum install ctags
@@ -17,16 +25,5 @@ Installation
 > cd ~/.vim
 > git submodule init
 > git submodule update
-
-### Optionnel
-
-#### Fonts POWERLINE
-
-Instructions : https://powerline.readthedocs.org/en/latest/installation/linux.html#installation-linux
-
-Commandes :
-
-> mkdir  ~/.fonts ~/.fonts.conf.d
-> wget -P ~/.fonts https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
-> fc-cache -vf ~/.fonts
-> wget -P ~/.fonts.conf.d https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+> vim +PluginInstall +qall
+> vim +BundleInstall +qall
