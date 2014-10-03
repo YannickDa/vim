@@ -1,3 +1,47 @@
 snippet consol "Console.log" b
 console.log($1);$0
 endsnippet
+
+snippet bview "Backbone View" b
+(function ($) {
+
+	var view = namespace('App.View$1');
+	view.$2 = Backbone.View.extend({
+		tagName: '$3',
+		$0
+	});
+
+})(jQuery);
+endsnippet
+
+snippet bvinit "Backbone View Initialize" b
+initialize: function () {${2:
+	this.render();}
+	$0
+}${1:,}
+endsnippet
+
+snippet bvrender "Backbone View render" b
+render: function () {
+	$0
+	return this;
+}${1:,}
+endsnippet
+
+snippet bvevents "Backbone View events" b
+events: {
+	'$2 $3': '$4'$0
+}${1:,}
+endsnippet
+
+snippet bvtemplate "Backbone View template" b
+template: _.template(
+	$0
+)${1:,}
+endsnippet
+
+snippet ofunc "Object Function" b
+$1: function ($2) {
+	$0
+}${3:,}
+endsnippet
