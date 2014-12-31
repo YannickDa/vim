@@ -20,7 +20,7 @@ Plugin 'othree/html5.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'Shougo/vimshell.vim'
-Bundle 'shawncplus/phpcomplete.vim'
+"Bundle 'shawncplus/phpcomplete.vim'
 Plugin 'Shougo/neocomplcache.vim'
 Plugin 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
@@ -125,7 +125,7 @@ endfunction
 inoremap <expr><Enter>  pumvisible() ? "\<C-Y>" : "\<Enter>"
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
-autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+"autocmd FileType php,phtml setlocal omnifunc=phpcomplete#CompletePHP
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType js,javascript setlocal omnifunc=javascriptcomplete#CompleteJS
