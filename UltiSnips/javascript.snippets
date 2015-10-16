@@ -47,31 +47,22 @@ $1: function ($2) {
 endsnippet
 
 snippet nodemodel "NodeJS ORM2 Model" b
-var orm = require('orm');
+'use strict';
 
-module.exports = function (db, models, translator, next) {
-    var $1 = db.define('$1s', {
+module.exports = function (db, models) {
+    /**
+     * @namespace $1
+     * @memberof Models
+     * @class
+     * @classdesc $2
+     * @name $1
+     * ${2:@property {String} id - Unique ID of providers}
+	 * $3
+     */
+    models.$1 = db.define('$1\ls', {
 		$0
-    }, {
-        cache: false,
-        validations: {
-        },
-        methods: {
-        },
-        hooks: {
-            beforeSave: function (next) {
-				next();
-            },
-
-            beforeCreate: function (next) {
-				next();
-            }
-        }
     });
-
-    models.$1 = $1;
-    next();
-}
+};
 endsnippet
 
 snippet nmdef "NodeJS ORM2 Model Property" b
