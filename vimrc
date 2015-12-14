@@ -102,6 +102,8 @@ nmap ,gc :Git commit
 nmap ,gpl :Git pull<CR>
 nmap ,gps :Git push<CR>
 
+" format JSON
+nmap ,j :%!python -m json.tool<CR>
 
 " Airline configuration
 let g:airline#extensions#tabline#enabled = 1
@@ -170,7 +172,7 @@ endfunction
 "inoremap <expr><Tab>  pumvisible() ? "\<C-n>" : "\<Tab>"
 "inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<C-R>=UltiSnips#ExpandSnippet()"
 inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "<C-R>=ExpandSnippetOrJumpForwardOrReturnTab()<CR>"
-snoremap <buffer> <silent> <TAB> <ESC>:call UltiSnips#JumpForwards()<CR>
+"snoremap <buffer> <silent> <TAB> <ESC>:call UltiSnips#JumpForwards()<CR>
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
