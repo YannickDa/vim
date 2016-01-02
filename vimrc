@@ -43,6 +43,7 @@ Plugin 'jQuery'
 " Bundle 'wookiehangover/jshint.vim'
 Bundle "nvie/vim-flake8"
 Bundle "mxw/vim-jsx"
+Plugin 'Raimondi/delimitMate'
 
 
 " All of your Plugins must be added before the following line
@@ -255,13 +256,21 @@ let g:bufExplorerShowRelativePath=1
 
 
 " Javascript syntax configuration
-let g:used_javascript_libs = 'underscore,backbone,jquery'
+let g:used_javascript_libs = 'underscore,backbone,jquery,react,flux,jasmine,chai,handlebars'
 autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 0
 autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 0
-
+autocmd BufReadPre *.js let b:javascript_lib_use_angularui = 0
+autocmd BufReadPre *.js let b:javascript_lib_use_angularuirouter = 0
+autocmd BufReadPre *.js let b:javascript_lib_use_react = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_flux = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_requirejs = 0
+autocmd BufReadPre *.js let b:javascript_lib_use_sugar = 0
+autocmd BufReadPre *.js let b:javascript_lib_use_jasmine = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_chai = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_handlebars = 1
 
 
 " Closetag configuration
