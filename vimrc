@@ -163,15 +163,8 @@ inoremap <expr><C-l> neocomplete#complete_common_string()
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-    "return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-    " For no inserting <CR> key.
-    return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
+imap <expr> <CR> pumvisible() ? "\<c-y>" : "<Plug>delimitMateCR"
 " <TAB>: completion.
-"inoremap <expr><Tab>  pumvisible() ? "\<C-n>" : "\<Tab>"
-"inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<C-R>=UltiSnips#ExpandSnippet()"
 inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "<C-R>=ExpandSnippetOrJumpForwardOrReturnTab()<CR>"
 "snoremap <buffer> <silent> <TAB> <ESC>:call UltiSnips#JumpForwards()<CR>
 " <C-h>, <BS>: close popup and delete backword char.
@@ -292,3 +285,6 @@ augroup END
 " let JSHintUpdateWriteOnly=1
 
 let g:jsx_ext_required = 0
+
+let delimitMate_expand_space = 1
+let delimitMate_expand_cr = 1
