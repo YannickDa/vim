@@ -23,7 +23,6 @@ Installation
 > git clone git@github.com:YannickDa/vim.git ~/.vim
 > ln -s ~/.vim/vimrc ~/.vimrc
 > cd ~/.vim
-> git submodule init
-> git submodule update
+> git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 > vim +PluginInstall +qall
 > vim +BundleInstall +qall
