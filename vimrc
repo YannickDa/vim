@@ -73,8 +73,8 @@ set number
 " Activate color syntax
 syn on
 set autoindent
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 set expandtab
 set showtabline=2
 set foldmethod=syntax
