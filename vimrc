@@ -38,6 +38,7 @@ Plugin 'EvanDotPro/php_getset.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'comments.vim'
 Plugin 'closetag.vim'
+Plugin 'tpope/vim-ragtag'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'jQuery'
 " Bundle 'wookiehangover/jshint.vim'
@@ -268,8 +269,7 @@ autocmd BufReadPre *.js let b:javascript_lib_use_handlebars = 1
 
 
 " Closetag configuration
-autocmd Filetype html,xml,xsl,htm,php source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
-
+" autocmd Filetype html,xml,xsl,htm,php source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 
 
 " PHP-VIM Configuration
