@@ -98,6 +98,9 @@ nmap <silent> ,p :rviminfo! ~/.viminfo<CR>"xp
 " Can delete ^M from Windows files
 map <silent> ,m :%s/\r//g<CR>
 
+" Can delete ^M from Windows files
+map <silent> ,; :%s/;$//g<CR>
+
 " Config pour Fugitive
 nmap ,ga :Git add
 nmap ,gs :Gstatus<CR>
