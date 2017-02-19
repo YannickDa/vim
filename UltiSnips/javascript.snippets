@@ -2,161 +2,18 @@ snippet consol "Console.log" b
 console.log($1);$0
 endsnippet
 
-snippet bview "Backbone View" b
-(function ($) {
+snippet component "React Component" b
+import React, { Component } from "react";
 
-	var view = namespace('App.View$1');
-	view.$2 = Backbone.View.extend({
-		tagName: '$3',
-		$0
-	});
-
-})(jQuery);
-endsnippet
-
-snippet bvinit "Backbone View Initialize" b
-initialize: function () {${2:
-	this.render();}
-	$0
-}${1:,}
-endsnippet
-
-snippet bvrender "Backbone View render" b
-render: function () {
-	$0
-	return this;
-}${1:,}
-endsnippet
-
-snippet bvevents "Backbone View events" b
-events: {
-	'$2 $3': '$4'$0
-}${1:,}
-endsnippet
-
-snippet bvtemplate "Backbone View template" b
-template: _.template(
-	$0
-)${1:,}
-endsnippet
-
-snippet ofunc "Object Function" b
-$1: function ($2) {
-	$0
-}${3:,}
-endsnippet
-
-snippet nodemodel "NodeJS ORM2 Model" b
-'use strict';
-
-module.exports = function (db, models) {
-    /**
-     * @namespace $1
-     * @memberof Models
-     * @class
-     * @classdesc $2
-     * @name $1
-     * ${2:@property {String} id - Unique ID of providers}
-	 * $3
-     */
-    models.$1 = db.define('$1\ls', {
-		$0
-    });
+export default class $1 extends Component {
+	render() {
+		return (
+			<$2>
+				$0
+			</$2>
+		);
+	}
 };
-endsnippet
-
-snippet nmdef "NodeJS ORM2 Model Property" b
-$1: { type: '${2:text}', required: ${3:true} },
-endsnippet
-
-snippet bcontroller "Backbone Controller" b
-;(function () {
-
-    var controller = namespace('App.Controller');
-
-    var routes = {};
-    routes[$2 + '(/)'] = '$3Action';
-
-    controller.$1 = Backbone.Controller.extend({
-        routes: routes,
-
-        $3Action: function () {
-			$0
-        }
-    });
-
-})();
-endsnippet
-
-snippet nodecontroller "NodeJS Controller" b
-var helper = require(__dirname + '/../helpers'),
-    _ = require('lodash');
-
-module.exports = {
-
-    $1: function (req, res) {
-		$0
-    }
-
-};
-endsnippet
-
-snippet nodeservice "NodeJS Service" b
-var _ = require('lodash')
-
-module.exports = function (services, models, req, config, next) {
-    var $1Service = {
-        getModel: function () {
-            return models.$1;
-        },
-
-        get: function (id, next) {
-            return this.getModel().get(id, next);
-        },
-
-        filterToPublic: function ($1) {
-            if (_.isArray($1)) {
-                return _.map($1, this.filterToPublic);
-            }
-            else {
-                return _.pick($1, $2);
-            }
-        }$0
-    };
-
-    services.$1 = $1Service;
-    next();
-};
-endsnippet
-
-snippet bmodel "Backbone Model" b
-(function () {
-
-    var model = namespace('App.Model$1');
-
-    model.$2 = Backbone.Model.extend({
-        idAttribute: '${3:_id}',
-
-        defaults: function () {
-            return {
-				$4
-            }
-        }
-    });
-
-})();
-endsnippet
-
-snippet bcollection "Backbone Collection" b
-(function () {
-
-    var model = namespace('App.Model$1');
-
-    model.$2Collection = Backbone.Collection.extend({
-		model: App.Model.$2
-    });
-
-})();
 endsnippet
 
 snippet imhere "I'm Here !" b
