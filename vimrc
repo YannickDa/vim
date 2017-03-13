@@ -41,10 +41,10 @@ Plugin 'closetag.vim'
 Plugin 'tpope/vim-ragtag'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'jQuery'
-" Bundle 'wookiehangover/jshint.vim'
 Bundle "nvie/vim-flake8"
 Bundle "mxw/vim-jsx"
 Plugin 'Raimondi/delimitMate'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 
 " All of your Plugins must be added before the following line
@@ -294,5 +294,11 @@ let delimitMate_expand_space = 1
 let delimitMate_expand_cr = 1
 
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 
 cnoreabbrev Ack Ack! --ignore-dir=build --ignore-dir=.happypack
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
