@@ -2,21 +2,69 @@ snippet consol "Console.log" b
 console.log($1);$0
 endsnippet
 
+snippet statelessComponent "React Stateless Component" b
+import React from "react"
+
+const $1 = ($2) => (
+	<$3>
+		$0
+	</$3>
+)
+
+export default $1
+endsnippet
+
+snippet purecomponent "React PureComponent" b
+import React, { PureComponent } from "react"
+
+class $1 extends PureComponent {
+	render() {
+		return (
+			<$3>
+				$0
+			</$3>
+		)
+	}
+}
+
+export default $1
+endsnippet
+
 snippet component "React Component" b
 import React, { Component } from "react"
 
-export default class $1 extends Component {
+class $1 extends Component {
 	render() {
 		return (
-			<$2>
+			<$3>
 				$0
-			</$2>
-		);
+			</$3>
+		)
 	}
-};
+}
+
+export default $1
 endsnippet
 
-snippet imhere "I'm Here !" b
-console.log('#####################################################################################################################################################################################');
-$0
+snippet proptypes "React PropTypes" b
+import PropTypes from "prop-types"
+endsnippet
+
+snippet childrenProptypes "React Children PropTypes" b
+children: PropTypes.oneOfType([
+	PropTypes.arrayOf(PropTypes.node),
+	PropTypes.node
+])$0
+endsnippet
+
+snippet glamorous "Glamorous import" b
+import glamorous from "glamorous"
+endsnippet
+
+snippet divglamorous "Div Glamorous import" b
+import { Div } from "glamorous"
+endsnippet
+
+snippet reactintl "React Intl" b
+import { injectIntl, FormattedMessage } from "react-intl"
 endsnippet
