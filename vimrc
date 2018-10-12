@@ -55,6 +55,7 @@ Bundle "mxw/vim-jsx"
 Plugin 'Raimondi/delimitMate'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'moll/vim-node'
+Plugin 'styled-components/vim-styled-components'
 
 
 " All of your Plugins must be added before the following line
