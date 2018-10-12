@@ -56,6 +56,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'moll/vim-node'
 Plugin 'styled-components/vim-styled-components'
+Plugin 'wakatime/vim-wakatime'
 
 
 " All of your Plugins must be added before the following line
