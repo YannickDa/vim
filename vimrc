@@ -270,6 +270,7 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
+
 "nmap n :m +1<CR>
 "nmap m :m -2<CR>
 
@@ -317,7 +318,7 @@ let delimitMate_expand_cr = 1
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 
-cnoreabbrev Ack Ack! --ignore-dir=build --ignore-dir=.happypack
+cnoreabbrev Ack Ack! --ignore-dir=build
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
